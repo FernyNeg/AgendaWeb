@@ -1,0 +1,40 @@
+<project
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<!-- Pompadre al que pertenece nuestro rest del proyecto general -->
+	<parent>
+		<artifactId>Agenda</artifactId>
+		<groupId>itsh.isic</groupId>
+		<version>1.0</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<!-- Declaración de nuestro proyecto interno rest -->
+	<artifactId>AgendaRest</artifactId>
+	<packaging>jar</packaging>
+	<name>AgendaRest</name>
+	<!-- declaracion de proyectos internos que necesitamos dentro de nuestro
+	rest -->
+	<dependencies>
+		<!-- core es el proyecto donde entontraremos informacion base de 
+		nuestro proyecto para utilizar dentro de toda la aplicacion
+		constantes, enumeradores, conexiones, modelos, operaciones basicas, Etc.
+		 -->
+		<dependency>
+			<groupId>itsh.isic</groupId>
+			<artifactId>AgendaCore</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<!-- Persist es el proyecto donde generaremos las interfaces de 
+		nustro negocio y las implementaciones para una seguridad minima completa 
+		interfaces, implementaciones (@Repository) a nuestra base de datos 
+		con conexiones encapsuladas (@Autowired) 
+		-->
+		<dependency>
+			<groupId>itsh.isic</groupId>
+			<artifactId>AgendaPersist</artifactId>
+			<version>1.0</version>
+		</dependency>
+	</dependencies>
+</project>

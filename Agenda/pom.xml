@@ -1,0 +1,117 @@
+<project
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<!-- informacion primaria del pom padre -->
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>Agenda</artifactId>
+	<groupId>itsh.isic</groupId>
+	<version>1.0</version>
+	<packaging>pom</packaging>
+	<name>Agenda</name>
+
+	<!-- modulos declarados en el orden que se compilaran al generar la version -->
+	<modules>
+		<module>
+			AgendaCore
+		</module>
+		<module>
+			AgendaPersist
+		</module>
+		<module>
+			AgendaRest
+		</module>
+	</modules>
+
+	<!-- propiedades generales del proyecto y su compilacion -->
+	<properties>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<spring.boot.version>3.0.6</spring.boot.version>
+		<java.version>17</java.version>
+		<start-class>itsh.isic.config.AppConfig</start-class>
+	</properties>
+
+	<dependencies>
+		<!-- dependencia general del spring boot y su arranque -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<!-- dependencia que agrega funciones y propiedades para el desarrollo de entornos web (mvc) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- dependencia que agrega funciones y propiedades de desarrolo de aplicaciones rest  -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
+		</dependency>
+		<!-- dependencia que agrega funciones y propiedades para desarolladores (restart, update, relaunch) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+		<!-- dependencia que agrega funciones y propiedades para la utilizacion de drives de bd -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jdbc</artifactId>
+		</dependency>
+		<!-- driver de mysql conector -->
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+		</dependency>
+	</dependencies>
+
+	<!-- repositorios existentes donde descargar las dependencias declaradas anteriormente -->
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-snapshots</id>
+			<url>https://repo.spring.io/snapshot</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>spring-milestones</id>
+			<url>https://repo.spring.io/milestone</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<!-- dependencia general que usara para arrancar spring boot -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring.boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<!-- construccion del codigo dentro del proyecto -->
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.8.1</version>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+</project>
+
