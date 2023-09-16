@@ -26,14 +26,14 @@
 			<artifactId>AgendaCore</artifactId>
 			<version>1.0</version>
 		</dependency>
-		<!-- Persist es el proyecto donde generaremos las interfaces de 
+		
+		<!-- Business es el proyecto donde generaremos las interfaces de 
 		nustro negocio y las implementaciones para una seguridad minima completa 
-		interfaces, implementaciones (@Repository) a nuestra base de datos 
-		con conexiones encapsuladas (@Autowired) 
+		interfaces, implementaciones (@Repository) a logica de negocio (@Autowired) 
 		-->
 		<dependency>
 			<groupId>itsh.isic</groupId>
-			<artifactId>AgendaPersist</artifactId>
+			<artifactId>AgendaBusiness</artifactId>
 			<version>1.0</version>
 		</dependency>
 	</dependencies>
